@@ -48,6 +48,22 @@ class GameScene: SKScene {
         self.scorelabel.position = CGPoint(x:400,y:size.height-500)
         addChild(scorelabel)
         
+        
+        //5. animation for grandma's movement
+        let move1 = SKAction.move(to: CGPoint(x:size.width/2,y:360), duration: 2)
+        let move2 = SKAction.move(to: CGPoint(x:100,y:size.height/2), duration: 2)
+        let move3 = SKAction.move(to:CGPoint(x:size.width/2, y:400), duration:2)
+        let move4 = SKAction.move(to:CGPoint(x:size.width - 100, y:size.height / 2), duration:2)
+    
+   
+        let grandmaAnimation = SKAction.sequence([move1,move2, move3, move4])
+            
+    
+        //6. make grandma move in this pattern forever
+                let grandmaForeverAnimation = SKAction.repeatForever(grandmaAnimation)
+                self.grandma.run(grandmaForeverAnimation)
+                
+            }
     }
     
     
